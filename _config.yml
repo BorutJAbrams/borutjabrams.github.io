@@ -1,3 +1,5 @@
 theme: minima
+minima:
+  skin: dark
 title: Random programming stuff
 description: Thoughts, code, and obscure solutions to programming problems I stumble upon, especially the ones that made me spit blood to figure out. If it helped me, maybe it'll help you too.
