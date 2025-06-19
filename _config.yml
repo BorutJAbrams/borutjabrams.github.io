@@ -5,7 +5,7 @@ author:
   name: Borut J.
   email: me@borutj.anonaddy.me
 
-theme: minima
+remote_theme: jekyll/minima
 
 minima:
   skin: dark
