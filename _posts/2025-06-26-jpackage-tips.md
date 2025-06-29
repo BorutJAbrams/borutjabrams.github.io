@@ -69,6 +69,28 @@ If you need JavaFX, you can download a JDK and JavaFX separately like I did, or 
 > statements in the `module-info.java` might be enough. Maybe a simple JDK with no JavaFX might be enough.
 > More on that later.
 
+If you need to create a Windows installer, you also need the [WiX Toolset](https://github.com/wixtoolset/wix), but
+be careful, because (citing the [Wix Toolset ReadMe](https://github.com/wixtoolset/issues/blob/main/README.md)):
+
+> To ensure the long-term sustainability of this project, use of the WiX Toolset requires an Open Source Maintenance 
+> Fee. While the source code is freely available under the terms of the LICENSE, all other aspects of the 
+> project--including opening or commenting on issues, participating in discussions and downloading releases--require 
+> adherence to the Maintenance Fee.
+
+Which means that to use their binaries you need to pay the Maintenance Fee. Otherwise: fork/clone the repo and build
+it by yourself. By reading the [Open Source Maintenance Fee FAQs](https://opensourcemaintenancefee.org/consumers/faq/),
+it's my understanding that this should be OK:
+
+> Q: What if I don’t want to pay the Maintenance Fee? 
+>
+> That’s fine. You can download the project’s source code and follow the Open Source license for the software.
+>
+> Do not open issues. Do not ask questions. Do not download releases. Do not reference packages via a package manager.
+> Do not use anything other than the source code released under the Open Source license.
+>
+> Also, if you choose to not pay the Maintenance Fee, but find yourself returning to check on the status of issues
+> or review answers to questions others ask, you are still using the project and need to pay the Maintenance Fee.
+
 
 
 ## Developing/building
@@ -268,7 +290,19 @@ could be useful to note it.
 
 
 
-## Bonus: adding a splash screen
+## Bonus 1: all-inclusive Maven templates
+
+If you prefer a magical `pom.xml` that does everything, you can find them here:
+- [JPackageScriptFX](https://github.com/dlemmermann/JPackageScriptFX): note that this one doesn't use modularization
+- [maven-jpackage-template](https://github.com/wiverson/maven-jpackage-template): from the ReadMe file: "Java + Maven +
+  GitHub Actions = Native Desktop Apps"
+
+Check which one best suits your needs. Personally I prefer the manual way, using shell scripts, at least for now.
+
+
+
+## Bonus 2: adding a splash screen
+
 Who doesn't love splash screens? They make our computer so... so... 90-ish...
 
 A splash screen is useful in Java desktop applications, since they're sloooooow to load. The splash screen gives you the
@@ -368,7 +402,7 @@ Error initializing QuantumRenderer: no suitable pipeline found
 
 This is the universe telling you that 
 [you need to include](https://github.com/javafxports/openjdk-jfx/issues/237#issuecomment-426909275) the `.jmods` 
-when buildin the app-image. So try with this command:
+when building the app-image. So try with this command:
 
 ```bash
 $ jpackage \
